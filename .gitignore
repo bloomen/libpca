@@ -1,0 +1,7 @@
+.cproject
+.project
+dist
+build/libpca.so*
+test/pca_test
+examples/simple/pca_example
+libunittest.xml

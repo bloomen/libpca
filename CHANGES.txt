@@ -1,0 +1,115 @@
+1.2.8
+
+- added move copy constructor and pca::swap()
+- a few code improvements and more documentation
+- use of libunittest 2.5.0
+
+1.2.7
+
+- use of libunittest 2.3.3
+
+1.2.6
+
+- use of libunittest 2.3.0
+- slightly improved example
+
+1.2.5
+
+- use of libunittest 2.2.0
+
+1.2.4
+
+- use of libunittest 1.7.0
+- little code refactoring
+
+1.2.3
+
+- use of libunittest 1.6.6
+
+1.2.2
+
+- use of libunittest 1.6.3
+
+1.2.1
+
+- improved unit tests
+- use of libunittest 1.5.0
+
+1.2.0
+
+- some code refactoring in pca.h
+- improved unit testing framework
+
+1.1.10
+
+- added further assert member functions to testcase
+- renamed macro print_function to print_test
+- better assert_throws member functions
+
+1.1.9
+
+- improved the unit testing framework
+
+1.1.8
+
+- improved and simplified the unit testing framework
+
+1.1.7
+
+- included own unit test framework
+- dropped dependency of CppUnit
+- improved documentation
+
+1.1.6
+
+- use of variadic templates to join values of arbitrary types 
+	to a string; used mainly to format exception messages  
+- code clean-up
+- more unit tests
+
+1.1.5
+
+- improved README
+- ensured code compiles with gcc >= 4.5
+
+1.1.4
+
+- code clean-up
+- more unit tests
+- refactoring
+
+1.1.3
+
+- refactoring
+- better doc
+
+1.1.2
+
+- reorganized pca interface
+- add_records is drastically faster now
+- clearer names of private objects
+- improved pca property file
+- improved README.txt
+
+1.1.0
+
+- added pca::operator==
+- util. functions for relative comparison of scalars and iterators
+- much improved unit tests
+- improved install.sh
+
+1.0.4
+
+- more documentation
+- improved install script
+- better README.txt
+
+1.0.3
+
+- added install script: install.sh
+- removed deprecated build.sh
+- added build and run scripts for test and examples
+
+1.0.2
+
+- initial release
