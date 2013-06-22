@@ -27,25 +27,9 @@ public:
 	 */
 	explicit pca(long num_vars);
 	/**
-	 * @brief Copy constructor
-	 * @param other Another instance of pca
-	 */
-	pca(const pca& other);
-	/**
-	 * @brief Move Copy constructor
-	 * @param other Another instance of pca
-	 */
-	pca(pca&& other);
-	/**
 	 * @brief Destructor
 	 */
 	virtual ~pca();
-	/**
-	 * @brief Assignment operator
-	 * @param other Another instance of pca
-	 * @return An instance of pca
-	 */
-	pca& operator=(pca other);
 	/**
 	 * @brief Comparison operator. Two pca instances are considered equal if
 	 * 	all private members (minus the added data records) are equal relative
@@ -290,7 +274,6 @@ protected:
 	void assert_num_vars_();
 	void resize_data_if_needed_();
 	void bootstrap_eigenvalues_();
-	void swap(pca& other);
 };
 /**
  * @brief Utilities
@@ -353,7 +336,7 @@ void enforce_positive_sign_by_column(arma::Mat<double>& data);
  * @return The extracted column vector
  * @throws std:range_error if index is out of range
  */
-std::vector<double> extract_column_vector(const arma::Mat<double>& data, const long& index);
+std::vector<double> extract_column_vector(const arma::Mat<double>& data, long index);
 /**
  * @brief Extracts a row vector from the input matrix
  * @param data The input matrix
@@ -361,7 +344,7 @@ std::vector<double> extract_column_vector(const arma::Mat<double>& data, const l
  * @return The extracted row vector
  * @throws std:range_error if index is out of range
  */
-std::vector<double> extract_row_vector(const arma::Mat<double>& data, const long& index);
+std::vector<double> extract_row_vector(const arma::Mat<double>& data, long index);
 /**
  * @brief Asserts the boolean result of a file check
  * @param is_file_good The boolean result of a file check

@@ -71,7 +71,7 @@ void enforce_positive_sign_by_column(arma::Mat<double>& data) {
 	}
 }
 
-std::vector<double> extract_column_vector(const arma::Mat<double>& data, const long& index) {
+std::vector<double> extract_column_vector(const arma::Mat<double>& data, long index) {
 	if (index<0 || index >= long(data.n_cols))
 		throw std::range_error(join("Index out of range: ", index));
 	const long n_rows = data.n_rows;
@@ -80,7 +80,7 @@ std::vector<double> extract_column_vector(const arma::Mat<double>& data, const l
 	return std::move(result);
 }
 
-std::vector<double> extract_row_vector(const arma::Mat<double>& data, const long& index) {
+std::vector<double> extract_row_vector(const arma::Mat<double>& data, long index) {
 	if (index<0 || index >= long(data.n_rows))
 		throw std::range_error(join("Index out of range: ", index));
 	const arma::Row<double> row(data.row(index));

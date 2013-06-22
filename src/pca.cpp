@@ -46,58 +46,8 @@ pca::pca(long num_vars)
 	initialize_();
 }
 
-pca::pca(const pca& other)
-	: num_vars_(other.num_vars_),
-	  num_records_(other.num_records_),
-	  record_buffer_(other.record_buffer_),
-	  solver_(other.solver_),
-	  do_normalize_(other.do_normalize_),
-	  do_bootstrap_(other.do_bootstrap_),
-	  num_bootstraps_(other.num_bootstraps_),
-	  bootstrap_seed_(other.bootstrap_seed_),
-	  num_retained_(other.num_retained_),
-	  data_(other.data_),
-	  energy_(other.energy_),
-	  energy_boot_(other.energy_boot_),
-	  eigval_(other.eigval_),
-	  eigval_boot_(other.eigval_boot_),
-	  eigvec_(other.eigvec_),
-	  proj_eigvec_(other.proj_eigvec_),
-	  princomp_(other.princomp_),
-	  mean_(other.mean_),
-	  sigma_(other.sigma_)
+pca::~pca()
 {}
-
-pca::pca(pca&& other) {
-	swap(other);
-}
-
-pca& pca::operator=(pca other) {
-	swap(other);
-	return *this;
-}
-
-void pca::swap(pca& other) {
-	std::swap(num_vars_, other.num_vars_);
-	std::swap(num_records_, other.num_records_);
-	std::swap(record_buffer_, other.record_buffer_);
-	std::swap(solver_, other.solver_);
-	std::swap(do_normalize_, other.do_normalize_);
-	std::swap(do_bootstrap_, other.do_bootstrap_);
-	std::swap(num_bootstraps_, other.num_bootstraps_);
-	std::swap(bootstrap_seed_, other.bootstrap_seed_);
-	std::swap(num_retained_, other.num_retained_);
-	std::swap(data_, other.data_);
-	std::swap(energy_, other.energy_);
-	std::swap(energy_boot_, other.energy_boot_);
-	std::swap(eigval_, other.eigval_);
-	std::swap(eigval_boot_, other.eigval_boot_);
-	std::swap(eigvec_, other.eigvec_);
-	std::swap(proj_eigvec_, other.proj_eigvec_);
-	std::swap(princomp_, other.princomp_);
-	std::swap(mean_, other.mean_);
-	std::swap(sigma_, other.sigma_);
-}
 
 bool pca::operator==(const pca& other) {
 	const double eps = 1e-5;
@@ -123,8 +73,6 @@ bool pca::operator==(const pca& other) {
 	else
 		return false;
 }
-
-pca::~pca() {}
 
 void pca::resize_data_if_needed_() {
 	if (num_records_ == record_buffer_) {
