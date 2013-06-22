@@ -1,6 +1,6 @@
 #!/bin/bash
-version=VERSION_NUMBER
 set -e
+version=$(head -n 1 VERSION.txt)
 
 dir=$1
 
