@@ -5,7 +5,7 @@ version=$(head -n 1 VERSION.txt)
 dir=$1
 
 if [ "x$dir" = "x" ]; then
-	dir=/usr/local
+    dir=/usr/local
 fi
 
 echo "Compiling ... "
@@ -24,6 +24,7 @@ echo "Installing ..."
 inc_dir=$dir/include
 lib_dir=$dir/lib
 
+mkdir -p $dir
 mkdir -p $inc_dir
 mkdir -p $lib_dir
 
