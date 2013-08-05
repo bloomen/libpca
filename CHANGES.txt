@@ -1,3 +1,10 @@
+1.2.11
+
+- removed auto-testing from install.sh; tests can be manually run in
+    the test directory
+- safer install.sh script with default installation directory changed
+    to /usr/local
+
 1.2.10
 
 - removed unnecessary explicit copy const. and assignment op.

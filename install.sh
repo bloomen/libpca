@@ -5,12 +5,7 @@ version=$(head -n 1 VERSION.txt)
 dir=$1
 
 if [ "x$dir" = "x" ]; then
-	dir=/usr
-fi
-
-if [ ! -d "$dir" ]; then
-	echo "$dir does not exist!"
-	exit 1
+	dir=/usr/local
 fi
 
 echo "Compiling ... "
@@ -21,15 +16,6 @@ rm -f libpca.so*
 make
 mv libpca.so libpca.so.$version
 ln -s libpca.so.$version libpca.so
-cd ..
-
-echo
-echo "Testing ..."
-
-cd test
-make clean >/dev/null
-make
-sh run_test.sh
 cd ..
 
 echo

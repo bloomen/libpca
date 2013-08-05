@@ -29,10 +29,10 @@ not installed in a standard location ensure that all environment variables
 In order to build and install libpca simply unpack the archive, enter the 
 resulting directory and execute: 
 
-sh install.sh [install_directory]
+bash install.sh [install_directory]
 
-If install_directory is not given than libpca will be installed in a standard
-system location (/usr) requiring root privileges.
+If install_directory is not given then libpca will be installed in a standard
+system location (/usr/local) requiring root privileges.
 
 libpca is being developed by Christian Blume. Contact Christian at
 chr.blume@gmail.com for any questions or comments.
