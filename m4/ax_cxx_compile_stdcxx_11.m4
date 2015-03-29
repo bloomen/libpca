@@ -37,10 +37,10 @@
 #serial 10
 
 m4_define([_AX_CXX_COMPILE_STDCXX_11_testbody], [[
-  template <typename T>
+    template <typename T>
     struct check
     {
-      static_assert(sizeof(int) <= sizeof(T), "not big enough");
+        static_assert(sizeof(int) <= sizeof(T), "not big enough");
     };
 
     typedef check<check<bool>> right_angle_brackets;
@@ -56,6 +56,18 @@ m4_define([_AX_CXX_COMPILE_STDCXX_11_testbody], [[
     auto l = [](){};
     // Prevent Clang error: unused variable 'l' [-Werror,-Wunused-variable]
     struct use_l { use_l() { l(); } };
+
+    template<typename T>
+    T adder(T v) {
+        return v;
+    }
+
+    template<typename T, typename... Args>
+    T adder(T first, Args... args) {
+        return first + adder(args...);
+    }
+
+    struct use_adder { use_adder() { auto sum = adder(1, 2, 3); } };
 
 ]])
 
