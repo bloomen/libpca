@@ -6,4 +6,4 @@ main.cpp \
 testcases.cpp \
 test_pca.cpp \
 test_utils.cpp
-unittest_LDADD = $(top_builddir)/src/lib/.libs/libunittest.a $(AM_LDFLAGS)
+unittest_LDADD = $(top_builddir)/src/lib/.libs/libpca.a $(AM_LDFLAGS)

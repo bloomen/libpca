@@ -33,3 +33,6 @@ stamp-h1
 *.trs
 examples/simple/pca_example
 test/unittest
+m4/libtool.m4
+m4/lt*m4
+pca_results*

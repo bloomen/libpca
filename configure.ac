@@ -12,6 +12,11 @@ AC_HEADER_STDC
 AC_CHECK_HEADERS([string])
 AC_CHECK_HEADERS([iostream])
 
+# Check for libraries
+GR_ARMADILLO(,,AC_MSG_ERROR([Armadillo not found]))
+LIBS="$ARMADILLO_LIBS $LIBS"
+CXXFLAGS="$CXXFLAGS $ARMADILLO_CFLAGS"
+
 # Checks for typedefs, structures, and compiler characteristics.
 AC_TYPE_SIZE_T
 AX_CXX_COMPILE_STDCXX_11([noext],[mandatory])

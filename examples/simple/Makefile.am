@@ -3,4 +3,4 @@ check_PROGRAMS = pca_example
 
 pca_example_SOURCES = \
 pca_example.cpp
-pca_example_LDADD = $(top_builddir)/src/lib/.libs/libunittest.a $(AM_LDFLAGS)
+pca_example_LDADD = $(top_builddir)/src/lib/.libs/libpca.a $(AM_LDFLAGS)
