@@ -1,6 +1,12 @@
 AM_CXXFLAGS = -I$(top_srcdir)/src @AM_CXXFLAGS@
 check_PROGRAMS = unittest
 
+EXTRA_DIST = \
+test_pca.h \
+test_utils.h \
+unittest.hpp \
+utils.hpp
+
 unittest_SOURCES = \
 main.cpp \
 testcases.cpp \
