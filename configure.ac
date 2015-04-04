@@ -7,6 +7,9 @@ LT_INIT
 AC_PROG_CXX
 AC_LANG([C++])
 
+# Starting off with no flags
+CXXFLAGS=
+
 # Checks for header files.
 AC_HEADER_STDC
 AC_CHECK_HEADERS([string])
@@ -35,10 +38,10 @@ AC_ARG_ENABLE([debug],
 AC_MSG_RESULT([$debugit])
 if test x"$debugit" = x"yes"; then
     AC_DEFINE([DEBUG],[],[Debug Mode])
-    AM_CXXFLAGS="$AM_CXXFLAGS -g -O0 -Wall -Wextra -Weffc++ -Wno-maybe-uninitialized -pedantic"
+    AM_CXXFLAGS="$AM_CXXFLAGS -g -O0 -Wall -Wextra -Weffc++ -pedantic"
 else
     AC_DEFINE([NDEBUG],[],[No-debug Mode])
-    AM_CXXFLAGS="$AM_CXXFLAGS -O3"
+    AM_CXXFLAGS="$AM_CXXFLAGS -O2"
 fi
 
 # distribute additional compiler and linker flags among Makefiles
