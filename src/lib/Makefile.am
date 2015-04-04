@@ -1,7 +1,7 @@
 # the library names to build
 lib_LTLIBRARIES = libpca.la
 
-libpca_la_LDFLAGS = -version-info 2:0:0
+libpca_la_LDFLAGS = -version-info 2:0:1
 
 # where to install the headers on the system
 libpca_ladir = $(includedir)
