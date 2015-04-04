@@ -18,7 +18,16 @@ pca::pca()
 	  num_bootstraps_(10),
 	  bootstrap_seed_(1),
 	  num_retained_(1),
-	  energy_(1)
+	  data_(),
+	  energy_(1),
+	  energy_boot_(),
+	  eigval_(),
+	  eigval_boot_(),
+	  eigvec_(),
+	  proj_eigvec_(),
+	  princomp_(),
+	  mean_(),
+	  sigma_()
 {}
 
 pca::pca(long num_vars)

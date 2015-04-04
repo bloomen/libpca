@@ -419,7 +419,7 @@ double get_sigma(const std::vector<double>& iter);
  * @brief A helper class for the join function
  */
 struct join_helper {
-	static void add_to_stream(std::ostream& stream) {}
+	static void add_to_stream(std::ostream&) {}
 
 	template<typename T, typename... Args>
 	static void add_to_stream(std::ostream& stream, const T& arg, const Args&... args) {

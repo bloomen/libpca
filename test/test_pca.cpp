@@ -6,7 +6,7 @@
 
 using namespace std;
 
-test_pca::test_pca() {
+test_pca::test_pca() : tmp_files() {
     srand(1);
 }
 

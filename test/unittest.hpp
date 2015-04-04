@@ -422,6 +422,30 @@ public:
     virtual void
     tear_down()
     {}
+    /**
+     * @brief Copy constructor. Deleted
+     * @param other An instance of testcase
+     */
+    testcase(const testcase& other) = delete;
+    /**
+     * @brief Copy assignment operator. Deleted
+     * @param other An instance of testcase
+     * @returns An testcase instance
+     */
+    testcase&
+    operator=(const testcase& other) = delete;
+    /**
+     * @brief Move constructor. Deleted
+     * @param other An instance of testcase
+     */
+    testcase(testcase&& other) = delete;
+    /**
+     * @brief Move assignment operator. Deleted
+     * @param other An instance of testcase
+     * @returns An testcase instance
+     */
+    testcase&
+    operator=(testcase&& other) = delete;
 
 protected:
     /**
@@ -1751,7 +1775,7 @@ unittest::testfailure::testfailure(const std::string& message)
 inline
 unittest::testlog::testlog()
     : class_name(""), test_name(""), successful(true),
-      status(teststatus::skipped), message(""), duration(0)
+      status(teststatus::skipped), error_type(), message(""), duration(0)
 {}
 
 
@@ -1760,7 +1784,7 @@ unittest::testlog::testlog()
 inline
 unittest::testresults::testresults()
     : successful(true), n_tests(0), n_successes(0), n_failures(0),
-      n_errors(0), n_skipped(0), duration(0), testlogs(0)
+      n_errors(0), n_skipped(0),  duration(0), testlogs(0)
 {}
 
 
@@ -1783,7 +1807,7 @@ inline
 unittest::testsuite::testsuite()
     : keep_running_(true), verbose_(false), failure_stop_(false),
       n_tests_(0), n_successes_(0), n_failures_(0),
-      n_errors_(0), n_skipped_(0), testlogs_(0), name_filter_(""),
+      n_errors_(0), n_skipped_(0), testlogs_(0), name_filter_(), test_name_(),
       start_(std::chrono::high_resolution_clock::time_point::min()),
       end_(std::chrono::high_resolution_clock::time_point::min())
 {}
@@ -2076,7 +2100,9 @@ unittest::argparser_error::argparser_error(const std::string& message)
 inline
 unittest::testrunner::testrunner(const std::string& class_name,
                                  const std::string& test_name)
-    : suite_(testsuite::instance()),
+    : log_(),
+	  start_(),
+	  suite_(testsuite::instance()),
       is_run_(true)
 {
     if (!suite_->get_keep_running())

@@ -7,7 +7,7 @@
 using namespace std;
 using namespace stats::utils;
 
-test_utils::test_utils() {
+test_utils::test_utils() : tmp_files() {
     srand(1);
 }
 
