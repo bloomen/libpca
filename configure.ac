@@ -3,12 +3,12 @@ AC_CONFIG_SRCDIR([src/lib/pca.cpp])
 AC_CONFIG_HEADERS([src/lib/config.h])
 AC_CONFIG_MACRO_DIR([m4])
 AM_INIT_AUTOMAKE([1.9])
-LT_INIT
+LT_INIT([win32-dll])
 AC_PROG_CXX
 AC_LANG([C++])
 
 # Starting off with no flags
-CXXFLAGS=
+AM_CXXFLAGS=
 
 # Checks for header files.
 AC_HEADER_STDC
@@ -18,14 +18,14 @@ AC_CHECK_HEADERS([iostream])
 # Check for libraries
 GR_ARMADILLO(,,AC_MSG_ERROR([Armadillo not found]))
 LIBS="$ARMADILLO_LIBS $LIBS"
-CXXFLAGS="$CXXFLAGS $ARMADILLO_CFLAGS"
+AM_CXXFLAGS="$AM_CXXFLAGS $ARMADILLO_CFLAGS"
 
 # Checks for typedefs, structures, and compiler characteristics.
 AC_TYPE_SIZE_T
 AX_CXX_COMPILE_STDCXX_11([noext],[mandatory])
 ACX_PTHREAD
 LIBS="$PTHREAD_LIBS $LIBS"
-CXXFLAGS="$CXXFLAGS $PTHREAD_CFLAGS"
+AM_CXXFLAGS="$AM_CXXFLAGS $PTHREAD_CFLAGS"
 CC="$PTHREAD_CC"
 
 # debug compilation support
