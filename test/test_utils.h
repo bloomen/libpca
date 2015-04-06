@@ -35,7 +35,6 @@ struct test_utils : utils::mytestcase {
 	}
 
     test_utils();
-    ~test_utils();
 
 	void test_make_covariance_matrix();
 	void test_make_shuffled_matrix();
@@ -60,6 +59,4 @@ struct test_utils : utils::mytestcase {
 	void test_get_sigma();
 	void test_join();
 
-private:
-    std::vector<std::string> tmp_files;
 };

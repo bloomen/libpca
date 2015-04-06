@@ -28,7 +28,6 @@ struct test_pca : utils::mytestcase {
 	}
 
     test_pca();
-    ~test_pca();
 
 	void test_set_num_variables();
 	void test_add_record();
@@ -46,7 +45,5 @@ struct test_pca : utils::mytestcase {
 	void test_check_eigenvectors_orthogonal();
 	void test_projections_to_space();
 
-private:
-    std::vector<std::string> tmp_files;
     void add_records(stats::pca& pca);
 };

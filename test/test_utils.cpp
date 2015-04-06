@@ -7,12 +7,8 @@
 using namespace std;
 using namespace stats::utils;
 
-test_utils::test_utils() : tmp_files() {
+test_utils::test_utils() {
     srand(1);
-}
-
-test_utils::~test_utils() {
-	utils::remove_files_safely(tmp_files);
 }
 
 void test_utils::test_make_covariance_matrix() {
@@ -135,8 +131,7 @@ void test_utils::test_assert_file_good() {
 void test_utils::test_write_matrix_object() {
 	const vector<double> vec = {1,2,3,4,5,6,7,8,9};
 	const arma::Mat<double> data(&vec.front(), 3, 3);
-	const string filename = "test_matrix";
-	tmp_files.push_back(filename);
+	const string filename = "test_data.matrix_write";
 	write_matrix_object(filename, data);
 	assert_file_exists(filename);
 
@@ -146,12 +141,11 @@ void test_utils::test_write_matrix_object() {
 
 void test_utils::test_read_matrix_object() {
 	arma::Mat<double> tmp;
-	const string filename = "test_matrix";
-	assert_throw<std::ios_base::failure>(std::bind(read_matrix_object<arma::Mat<double>>, filename, tmp), SPOT);
+	const string filename = "test_data.matrix_read";
+	assert_throw<std::ios_base::failure>(std::bind(read_matrix_object<arma::Mat<double>>, filename + "_not_here", tmp), SPOT);
 
 	const vector<double> vec = {1,2,3,4,5,6,7,8,9};
 	const arma::Mat<double> data(&vec.front(), 3, 3);
-	tmp_files.push_back(filename);
 	write_matrix_object(filename, data);
 	arma::Mat<double> result;
 	read_matrix_object(filename, result);

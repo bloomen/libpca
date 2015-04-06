@@ -6,12 +6,8 @@
 
 using namespace std;
 
-test_pca::test_pca() : tmp_files() {
+test_pca::test_pca() {
     srand(1);
-}
-
-test_pca::~test_pca() {
-    utils::remove_files_safely(tmp_files);
 }
 
 void test_pca::add_records(stats::pca& pca) {
@@ -135,15 +131,17 @@ void test_pca::test_save() {
 
 	pca.solve();
 
-	tmp_files = {"test.eigval","test.eigvalboot","test.eigvec",
-				 "test.energy","test.energyboot","test.mean",
-				 "test.pca","test.princomp","test.sigma"};
 
-	pca.save("test");
+	pca.save("test_data");
+
+	const std::vector<std::string> tmp_files{
+		"test_data.eigval","test_data.eigvalboot","test_data.eigvec",
+		"test_data.energy","test_data.energyboot","test_data.mean",
+		"test_data.pca","test_data.princomp","test_data.sigma"};
 	assert_files_exist(tmp_files);
 
 	stats::pca pca_loaded;
-	pca_loaded.load("test");
+	pca_loaded.load("test_data");
 	assert_true(pca==pca_loaded, SPOT);
 }
 
