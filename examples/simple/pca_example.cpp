@@ -2,7 +2,7 @@
  * @file pca_example.cpp
  * @brief This is an example program demonstrating the usage of the pca class
  */
-#include "pca.h"
+#include <pca.h>
 #include <iostream>
 #include <random>
 
@@ -20,9 +20,9 @@ int main() {
 	srand(1);
 	for (int i=0; i<num_records; ++i) {
 		vector<double> record(num_variables);
-		for (auto value=record.begin(); value!=record.end(); ++value)
-		    *value = rand()%20 - 10;
-
+		for (auto& value : record) {
+			value = rand()%20 - 10;
+		}
 		pca.add_record(record);
 	}
 

@@ -3,6 +3,7 @@
 - fixed debug build
 - eliminated compiler warnings in debug mode
 - improved portability to other architectures
+- improved documentation
 
 1.3.0
 
