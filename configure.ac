@@ -4,11 +4,9 @@ AC_CONFIG_HEADERS([src/lib/config.h])
 AC_CONFIG_MACRO_DIR([m4])
 AM_INIT_AUTOMAKE([1.9])
 LT_INIT([win32-dll])
+: ${CXXFLAGS=""}
 AC_PROG_CXX
 AC_LANG([C++])
-
-# Starting off with no flags
-AM_CXXFLAGS=
 
 # Checks for header files.
 AC_HEADER_STDC
