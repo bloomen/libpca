@@ -1,5 +1,5 @@
 libpca is a C++ library for principal component analysis and related 
-transformations. It comes with examples and unit tests. libpca is successfully 
+transformations. It comes with example and unit tests. libpca is successfully 
 tested on Linux and MacOSX using g++ (>=4.6), clang++ (>=3.2), and icc (>=14.0).
 
 libpca requires Armadillo (>=3.2.4) which can be obtained as a pre-compiled 
