@@ -49,7 +49,7 @@ void test_utils::test_remove_column_means() {
 void test_utils::test_remove_column_means_throws() {
 	arma::Mat<double> data(3, 3);
 	const arma::Col<double> means(2);
-	assert_throw<std::range_error>(std::bind(remove_column_means, data, means), SPOT);
+	assert_throw<std::range_error>([&]() { remove_column_means(data, means); }, SPOT);
 }
 
 void test_utils::test_compute_column_rms() {
@@ -78,9 +78,9 @@ void test_utils::test_normalize_by_column() {
 void test_utils::test_normalize_by_column_throws() {
 	arma::Mat<double> data(3, 3);
 	const arma::Col<double> sigmas1(2);
-	assert_throw<std::range_error>(std::bind(normalize_by_column, data, sigmas1), SPOT);
+	assert_throw<std::range_error>([&]() { normalize_by_column(data, sigmas1); }, SPOT);
 	const arma::Col<double> sigmas2 = {0, 0, 0};
-	assert_throw<std::runtime_error>(std::bind(normalize_by_column, data, sigmas2), SPOT);
+	assert_throw<std::runtime_error>([&]() { normalize_by_column(data, sigmas2); }, SPOT);
 }
 
 void test_utils::test_enforce_positive_sign_by_column() {
@@ -103,7 +103,7 @@ void test_utils::test_extract_column_vector() {
 void test_utils::test_extract_column_vector_throws() {
 	const arma::Mat<double> data(3, 3);
 	const int index = 3;
-	assert_throw<std::range_error>(std::bind(extract_column_vector, data, index), SPOT);
+	assert_throw<std::range_error>([&]() { extract_column_vector(data, index); }, SPOT);
 }
 
 void test_utils::test_extract_row_vector() {
@@ -117,15 +117,15 @@ void test_utils::test_extract_row_vector() {
 void test_utils::test_extract_row_vector_throws() {
 	const arma::Mat<double> data(3, 3);
 	const int index = 3;
-	assert_throw<std::range_error>(std::bind(extract_row_vector, data, index), SPOT);
+	assert_throw<std::range_error>([&]() { extract_row_vector(data, index); }, SPOT);
 }
 
 void test_utils::test_assert_file_good() {
 	const string filename = "dummy";
 	bool flag = false;
-	assert_throw<std::ios_base::failure>(std::bind(assert_file_good, flag, filename), SPOT);
+	assert_throw<std::ios_base::failure>([&]() { assert_file_good(flag, filename); }, SPOT);
 	flag = true;
-	assert_no_throw(std::bind(assert_file_good, flag, filename), SPOT);
+	assert_no_throw([&]() { assert_file_good(flag, filename); }, SPOT);
 }
 
 void test_utils::test_write_matrix_object() {
@@ -136,13 +136,13 @@ void test_utils::test_write_matrix_object() {
 	assert_file_exists(filename);
 
 	const string filename2 = "nada/test_matrix";
-	assert_throw<std::ios_base::failure>(std::bind(write_matrix_object<arma::Mat<double>>, filename2, data), SPOT);
+	assert_throw<std::ios_base::failure>([&]() { write_matrix_object<arma::Mat<double>>(filename2, data); }, SPOT);
 }
 
 void test_utils::test_read_matrix_object() {
 	arma::Mat<double> tmp;
 	const string filename = "test_data.matrix_read";
-	assert_throw<std::ios_base::failure>(std::bind(read_matrix_object<arma::Mat<double>>, filename + "_not_here", tmp), SPOT);
+	assert_throw<std::ios_base::failure>([&]() { read_matrix_object<arma::Mat<double>>(filename + "_not_here", tmp); }, SPOT);
 
 	const vector<double> vec = {1,2,3,4,5,6,7,8,9};
 	const arma::Mat<double> data(&vec.front(), 3, 3);

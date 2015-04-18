@@ -31,23 +31,23 @@ void test_pca::test_set_num_variables() {
 
 	exp = 0;
 	stats::pca pca3;
-	assert_throw<std::invalid_argument>(std::bind(&stats::pca::set_num_variables, pca3, exp), SPOT);
+	assert_throw<std::invalid_argument>([&]() { pca3.set_num_variables(exp); }, SPOT);
 
 	struct Functor {
 	    void operator()(long arg1) {
 		new stats::pca(arg1);
 	}} functor;
-	assert_throw<std::invalid_argument>(std::bind(functor, exp), SPOT);
+	assert_throw<std::invalid_argument>([&]() { functor(exp); }, SPOT);
 
 	exp = 1;
 	stats::pca pca5;
-	assert_throw<std::invalid_argument>(std::bind(&stats::pca::set_num_variables, pca5, exp), SPOT);
-	assert_throw<std::invalid_argument>(std::bind(functor, exp), SPOT);
+	assert_throw<std::invalid_argument>([&]() { pca5.set_num_variables(exp); }, SPOT);
+	assert_throw<std::invalid_argument>([&]() { functor(exp); }, SPOT);
 
 	exp = 2;
 	stats::pca pca7;
-	assert_no_throw(std::bind(&stats::pca::set_num_variables, pca7, exp), SPOT);
-	assert_no_throw(std::bind(functor, exp), SPOT);
+	assert_no_throw([&]() { pca7.set_num_variables(exp); }, SPOT);
+	assert_no_throw([&]() { functor(exp); }, SPOT);
 }
 
 void test_pca::test_add_record() {
@@ -74,7 +74,7 @@ void test_pca::test_add_record() {
 
 	std::vector<double> record4 = {4, 8, 7};
 
-	assert_throw<std::domain_error>(std::bind(&stats::pca::add_record, pca, record4), SPOT);
+	assert_throw<std::domain_error>([&]() { pca.add_record(record4); }, SPOT);
 }
 
 void test_pca::test_set_do_normalize() {
@@ -98,7 +98,7 @@ void test_pca::test_set_do_bootstrap() {
 
 	const long num_boots = 9;
 	const long seed = 1;
-	assert_throw<std::invalid_argument>(std::bind(&stats::pca::set_do_bootstrap, pca, exp, num_boots, seed), SPOT);
+	assert_throw<std::invalid_argument>([&]() { pca.set_do_bootstrap(exp, num_boots, seed); }, SPOT);
 }
 
 void test_pca::test_set_solver() {
@@ -111,7 +111,7 @@ void test_pca::test_set_solver() {
 	pca.set_solver(exp);
 	assert_equal(exp, pca.get_solver(), SPOT);
 	std::string solver = "java_sucks";
-	assert_throw<std::logic_error>(std::bind(&stats::pca::set_solver, pca, solver), SPOT);
+	assert_throw<std::logic_error>([&]() { pca.set_solver(solver); }, SPOT);
 }
 
 void test_pca::test_solve_throws() {
@@ -119,7 +119,7 @@ void test_pca::test_solve_throws() {
 	const int nvar = 4;
 	stats::pca pca(nvar);
 	pca.add_record(record1);
-	assert_throw<std::logic_error>(std::bind(&stats::pca::solve, pca), SPOT);
+	assert_throw<std::logic_error>([&]() { pca.solve(); }, SPOT);
 }
 
 void test_pca::test_save() {
