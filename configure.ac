@@ -1,4 +1,4 @@
-AC_INIT([libpca],[1.3.1],[chr.blume@gmail.com],[libpca],[http://sourceforge.net/projects/libpca])
+AC_INIT([libpca],[1.3.2],[chr.blume@gmail.com],[libpca],[http://sourceforge.net/projects/libpca])
 AC_CONFIG_SRCDIR([src/lib/pca.cpp])
 AC_CONFIG_HEADERS([src/lib/config.h])
 AC_CONFIG_MACRO_DIR([m4])
@@ -35,10 +35,8 @@ AC_ARG_ENABLE([debug],
     [debugit=no])
 AC_MSG_RESULT([$debugit])
 if test x"$debugit" = x"yes"; then
-    AC_DEFINE([DEBUG],[],[Debug Mode])
     AM_CXXFLAGS="$AM_CXXFLAGS -g -O0 -Wall -Wextra -Weffc++ -pedantic"
 else
-    AC_DEFINE([NDEBUG],[],[No-debug Mode])
     AM_CXXFLAGS="$AM_CXXFLAGS -O2"
 fi
 
