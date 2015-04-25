@@ -1,4 +1,4 @@
-AC_INIT([libpca],[1.3.2],[chr.blume@gmail.com],[libpca],[http://sourceforge.net/projects/libpca])
+AC_INIT([libpca],[1.3.3],[chr.blume@gmail.com],[libpca],[http://sourceforge.net/projects/libpca])
 AC_CONFIG_SRCDIR([src/lib/pca.cpp])
 AC_CONFIG_HEADERS([src/lib/config.h])
 AC_CONFIG_MACRO_DIR([m4])

@@ -1,4 +1,4 @@
-AM_CXXFLAGS = -I$(top_srcdir)/src @AM_CXXFLAGS@
+AM_CXXFLAGS = -I$(top_srcdir)/src/lib @AM_CXXFLAGS@
 check_PROGRAMS = pca_example
 
 pca_example_SOURCES = \
