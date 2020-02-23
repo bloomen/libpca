@@ -1,3 +1,7 @@
+1.3.4
+
+- moved project to GitHub and updated metadata
+
 1.3.3
 
 - adjusted autotools setup to support 'make distcheck'

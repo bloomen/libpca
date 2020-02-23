@@ -1,4 +1,4 @@
-libpca is a C++ library for principal component analysis and related 
+**libpca** is a C++ library for principal component analysis and related 
 transformations. It comes with example and unit tests. libpca is successfully 
 tested on Linux and MacOSX using g++ (>=4.6), clang++ (>=3.2), and icc (>=14.0).
 
@@ -32,7 +32,3 @@ Features
   primitive types, std::string, and std::vector
 - libpca comes with example and unit tests 
 - a great deal of libpca runs in parallel thanks to Armadillo
-
-
-libpca is being developed by Christian Blume. Contact Christian at
-chr.blume@gmail.com for any questions or comments.

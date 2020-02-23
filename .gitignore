@@ -39,3 +39,5 @@ pca_results.*
 test_data.*
 test-driver
 *.tar.gz
+INSTALL
+NEWS

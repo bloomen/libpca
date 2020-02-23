@@ -1,8 +1,8 @@
-AC_INIT([libpca],[1.3.3],[chr.blume@gmail.com],[libpca],[http://sourceforge.net/projects/libpca])
+AC_INIT([libpca],[1.3.4],[chr.blume@gmail.com],[libpca],[https://github.com/bloomen/libpca])
 AC_CONFIG_SRCDIR([src/lib/pca.cpp])
 AC_CONFIG_HEADERS([src/lib/config.h])
 AC_CONFIG_MACRO_DIR([m4])
-AM_INIT_AUTOMAKE([1.9])
+AM_INIT_AUTOMAKE([foreign])
 LT_INIT([win32-dll])
 : ${CXXFLAGS=""}
 AC_PROG_CXX
