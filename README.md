@@ -9,10 +9,11 @@ package on most distributions or directly from http://arma.sourceforge.net.
 Install
 -------
 
+```
 ./configure
 make
 make install
-
+```
 
 Features
 --------
